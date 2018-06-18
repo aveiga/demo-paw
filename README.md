@@ -17,27 +17,27 @@ This is a demo on how to setup a basic PWA
   "theme_color": "#fff",
   "description": "A simple pwa demo and tutorial.",
   "icons": [{
-    "src": "images/touch/homescreen48.png",
+    "src": "images/homescreen48.png",
     "sizes": "48x48",
     "type": "image/png"
   }, {
-    "src": "images/touch/homescreen72.png",
+    "src": "images/homescreen72.png",
     "sizes": "72x72",
     "type": "image/png"
   }, {
-    "src": "images/touch/homescreen96.png",
+    "src": "images/homescreen96.png",
     "sizes": "96x96",
     "type": "image/png"
   }, {
-    "src": "images/touch/homescreen144.png",
+    "src": "images/homescreen144.png",
     "sizes": "144x144",
     "type": "image/png"
   }, {
-    "src": "images/touch/homescreen168.png",
+    "src": "images/homescreen168.png",
     "sizes": "168x168",
     "type": "image/png"
   }, {
-    "src": "images/touch/homescreen192.png",
+    "src": "images/homescreen192.png",
     "sizes": "192x192",
     "type": "image/png"
   }, {
@@ -47,19 +47,22 @@ This is a demo on how to setup a basic PWA
   }]
 }
 ```
-1. create a file called `sw.js` with the following code:
+2. while your at it, add the theme-color meta to your index.html:
+```html
+<meta name="theme-color" content="#fff"/>
+```
+3. ... and add the `icon` images to the images folder
+4. create a file called `sw.js` with the following code:
 ```javascript
 importScripts('https://storage.googleapis.com/workbox-cdn/releases/3.2.0/workbox-sw.js');
 
 if (workbox) {
-  console.log(`Yay! Workbox is loaded 🎉`);
-
-  workbox.precaching.precacheAndRoute([]);
+    workbox.precaching.precacheAndRoute([]);
 } else {
-  console.log(`Boo! Workbox didn't load 😬`);
+  console.log(`workbox didn't load`);
 }
 ```
-3. install the workbox CLI globally: `npm install workbox-cli --global``
+5. install the workbox CLI globally: `npm install workbox-cli --global``
 1. on the root of your project, run: `workbox wizard --injectManifest`. When making changes to the `sw.js` file, run: `workbox injectManifest workbox-config.js`
 1. import the generated service worker on the HEAD of your index.html:
 ```html
@@ -73,4 +76,4 @@ if (workbox) {
     }
 </script>
 ```
-6. this should give you 90+ rate on lighthouse 👊🏻
+8. this should give you 90+ rate on lighthouse 👊🏻
