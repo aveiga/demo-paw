@@ -1,4 +1,4 @@
-# demo-paw
+# demo-pwa
 This is a demo on how to setup a basic PWA
 
 ## How to get there
